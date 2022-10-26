@@ -178,3 +178,59 @@ https://frontendmasters.com/courses/ember-octane/services/
 - Don't overwrite
 - do we want to overwrite. can type d to see the diff
 - actions on services is a new feature in octane -- and it's nice.
+
+## Nested routes and data
+
+- application.hbs is always shown on the screen. any url that begins with `/`
+- can always nest deeper with anything within the teams for instance within the routes `/teams/linkedin`
+- pictures available of routing [diagram](https://drive.google.com/file/d/1UGuP5Yhg-nZ5z_JFKhQCqHeLU_Yt_o3D/view)
+- `ember g route teams/team --path=:teamId` the paths within teams. : is the dynamic segment. the teamId is the name of the dynamic segment
+- `ember g route teams/team/channel --path=:channelId`
+- `{{outlet}}` kind of works like children in react for handling in the templates
+
+## Route model hook
+
+- can log `{{log this.model}}` to see available model data within a template
+- use `{{#each @teams as |team|}}` to iterate over the model data
+
+## Fetch
+
+- can be used to buffer video content even
+- lol referring to 2022 ie
+- fetch not in node. isomorphic code is code that can run in both the browser and node
+
+## Conditional rendering
+
+- `@activeClass` can be used for conditional rendering
+
+## Forwarding routes
+
+- Create index routes
+- `ember g route teams/index`
+- a folder level route
+- can handle the default teams set
+
+## Container and presentational components
+
+- Your components are either smart and stateful or they have an interesting template
+- can restart ts server from vs code
+
+## server rendering
+
+- notes https://github.com/FrontendMasters/ember-octane/blob/master/notes/20-server-rendering.md
+- ember ssr tech
+- cache the static assets and js files
+- there are some things with js that only pertain to the browser vs node. document and window only exist in browser
+- `ember install ember-cli-fastboot`
+- app is being served by fastbook
+- must provide a hostWhiteList to retrieve the host
+- can do that in config/environment.js
+- `localStorage` and cookies for http only cookies confined to the browser
+- `ember install ember-cookies`. create a single facade for reading cookies off of the document. when server-rendering, it will read the cookies.
+
+## pwa
+
+- notes https://github.com/FrontendMasters/ember-octane/blob/master/notes/21-pwa.md
+- install some ember add-ons from the opinionated community
+- `ember install ember-service-worker ember-service-worker-asset-cache ember-service-worker-cache-fallback ember-service-worker-index`
+- provide cache fallback patterns for if you lose internet connection

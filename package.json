@@ -19,6 +19,9 @@
     "test": "ember test",
     "dev": "ember serve"
   },
+  "resolutions": {
+    "whatwg-fetch": "3.3.1"
+  },
   "devDependencies": {
     "@ember/optional-features": "^0.7.0",
     "@ember/render-modifiers": "^1.0.0",
